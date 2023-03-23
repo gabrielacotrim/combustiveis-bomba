@@ -1,0 +1,46 @@
+from combustivel import combustivel
+
+def menu():
+    print("Menu:")
+    print("1. Abasteceber por Valor")
+    print("2. Abastecer por Litro")
+    print("3. Alterar Valor")
+    print("4. Alterar Quantidade Combustivel")
+    print("5. Sair" )
+
+while True:
+    opcao = menu()
+    opcao = input("Ecolha uma opção: ")
+
+    if opcao == 1:    
+        combustivel1 = combustivel("diesel", 5.27, 250)
+        valor=float(input("Insira o valor a ser abastecido: "))
+        print(combustivel1.abastecerPorValor(valor),"Litros de Diesel")
+
+        combustivel2 = combustivel("Gasolina Comum", 6,5, 250)
+        valor=(input("Insira o valor a ser abastecido: "))
+        print(combustivel1.abastecerPorValor(valor),"Litros de Gasolina Comum") 
+
+    elif opcao == 2:
+        combustivel = combustivel("Diesel", 5.57, 250)
+        litros = float(input("Insira a quantidade de litros a ser abastecido: "))
+        print("Valor a ser pago: R$", combustivel1.abastecerPorLitro(litros))
+
+        combustivel2 = combustivel("Gasolina Comum", 6.5, 250)
+        litros = float(input("Insira a quantidade de litros a ser abastecido: "))
+        print("Valor a ser pago: R$", combustivel2.abastecerPorLitro(litros))
+
+    elif opcao == 3:
+        novo_valor = float(input("Insira o novo valor do litro de combustível: "))
+        combustivel1.alterarValor(novo_valor)
+        combustivel2.alterarValor(novo_valor)
+        print("O novo valor do litro de combustível é R$ ", novo_valor)
+
+    elif opcao == 4:
+        nova_qnt = int(input("Insira a nova quantidade de combustível em litros: "))
+        combustivel1.alterarQuantidadeCombustivel(nova_qnt)
+        combustivel2.alterarQuantidadeCombustivel(nova_qnt)
+        print(f"A nova quantidade de combustível é ", (nova_qnt), " litros")
+
+    elif opcao == 5:
+        break
